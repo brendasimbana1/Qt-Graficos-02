@@ -2,6 +2,7 @@
 #define PRINCIPAL_H
 
 #include <QMainWindow>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Principal; }
@@ -14,16 +15,17 @@ class Principal : public QMainWindow
 public:
     Principal(QWidget *parent = nullptr);
     ~Principal();
+    float promedio();
 
 private slots:
     void on_actionGuardar_triggered();
 
-    void on_pushButton_clicked(bool checked);
+    void on_Promediar_clicked();
 
 private:
     Ui::Principal *ui;
-    QPixmap lienzo;
-
-    void dibujar();
+    QPixmap m_lienzo;
+    float m_n1, m_n2, m_n3;
+    void dibujar(int, int, int, float);
 };
 #endif // PRINCIPAL_H
